@@ -1,0 +1,22 @@
+{
+  "name": "firetrains",
+  "version": "1.0.0",
+  "description": "What Firefox bits are actually shipping right now?",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel test.es6.js > test.js",
+    "watch": "onchange *.es6.js -- npm run build"
+  },
+  "author": "potch",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.0",
+    "request": "^2.58.0",
+    "xmlom": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel": "^5.6.14",
+    "onchange": "^1.1.0"
+  }
+}
