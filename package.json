@@ -5,8 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
     "build": "babel test.es6.js > test.js",
     "watch": "onchange *.es6.js -- npm run build"
+  },
+  "engines": {
+    "iojs": "1.0.x"
   },
   "author": "potch",
   "license": "ISC",
