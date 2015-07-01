@@ -35,6 +35,7 @@ function update() {
 }
 
 update();
+setInterval(update, 5 * 60 * 1000);
 
 var app = express();
 app.set('port', (process.env.PORT || 8000));
