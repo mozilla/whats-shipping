@@ -12,7 +12,7 @@ var channelNames = [
   'nightly'
 ];
 
-var url = 'https://aus3.mozilla.org/update/1/Firefox/33.0.0/1/Darwin_x86_64-gcc3-u-i386-x86_64/en-US/%CHANNEL%/update.xml';
+var url = 'https://aus3.mozilla.org/update/1/Firefox/33.0.0/1/Darwin_x86_64-gcc3-u-i386-x86_64/en-US/%CHANNEL%/update.xml?force=1';
 
 var channels = {};
 
