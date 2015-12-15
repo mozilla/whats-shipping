@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width">
     <link href='//fonts.googleapis.com/css?family=Fira+Sans:300,500,300italic' rel='stylesheet' type='text/css'>
     <style>
+      * {
+        box-sizing: border-box;
+      }
       html, body {
         height: 100%;
         margin: 0;
@@ -14,7 +17,7 @@
         display: flex;
         flex-direction: column;
         color: #002147;
-        background: linear-gradient(to bottom, #EAEFF2, #D4DDE4)
+        background: linear-gradient(to bottom, #EAEFF2, #D4DDE4);
       }
       .cols {
         display: flex;
@@ -30,10 +33,10 @@
         align-items: center;
       }
       .col {
-        font-size: 1.4vw;
+        font-size: 1.4vmax;
       }
       .version {
-        font-size: 10vw;
+        font-size: 10vmax;
         font-weight: 300;
       }
       h1 {
@@ -46,6 +49,19 @@
         font-style: italic;
         text-align: center;
         color: #00539F;
+      }
+      @media (max-device-aspect-ratio: 4/3) {
+        .cols {
+          flex-direction: column;
+          padding: 1vw;
+        }
+      }
+      .raw {
+        position: absolute;
+        bottom: 1vw;
+        right: 2vw;
+        font-size: 2vw;
+        font-weight: 300;
       }
     </style>
   </head>
@@ -69,6 +85,7 @@
         <h1>Nightly</h1>
       </div>
     </div>
+    <a class="raw" href="/">raw data</a>
     <script>
       var xhr = new XMLHttpRequest();
       xhr.open('get', '/');
