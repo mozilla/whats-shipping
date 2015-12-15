@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link href='//fonts.googleapis.com/css?family=Fira+Sans:300,500,300italic' rel='stylesheet' type='text/css'>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        font-family: 'Fira Sans', sans-serif;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        color: #002147;
+        background: linear-gradient(to bottom, #EAEFF2, #D4DDE4)
+      }
+      .cols {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        padding-bottom: 25vh;
+        padding: 0 1vw 25vh;
+      }
+      .col {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .col {
+        font-size: 1.4vw;
+      }
+      .version {
+        font-size: 10vw;
+        font-weight: 300;
+      }
+      h1 {
+        margin: 0;
+      }
+      .title {
+        padding: 2vh;
+        font-size: 6vw;
+        font-weight: 300;
+        font-style: italic;
+        text-align: center;
+        color: #00539F;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="title">What's Shipping?</h1>
+    <div class="cols">
+      <div class="col">
+        <div class="version release"></div>
+        <h1>Firefox</h1>
+      </div>
+      <div class="col">
+        <div class="version beta"></div>
+        <h1>Beta</h1>
+      </div>
+      <div class="col">
+        <div class="version aurora"></div>
+        <h1>Developer Edition</h1>
+      </div>
+      <div class="col">
+        <div class="version nightly"></div>
+        <h1>Nightly</h1>
+      </div>
+    </div>
+    <script>
+      var xhr = new XMLHttpRequest();
+      xhr.open('get', 'http://whats-shipping.herokuapp.com/');
+      xhr.responseType = 'json';
+      xhr.onload = function() {
+        var status = this.response;
+        for (var train in status) {
+          try {
+            document.querySelector('.version.' + train).innerHTML = status[train].appVersion.replace(/[a-z].*/g,'');
+          } catch (e) {
+            console.error(e);
+          }
+        }
+      };
+      xhr.send();
+    </script>
+  </body>
+</html>
