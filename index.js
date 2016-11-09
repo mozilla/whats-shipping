@@ -28,6 +28,7 @@ function update() {
             channels[channel] = doc.find('update')[0].attrs;
           }).catch(function () {
             console.error(arguments);
+            console.error(url.replace('%CHANNEL%', channel));
             console.error(body);
           });
         }
